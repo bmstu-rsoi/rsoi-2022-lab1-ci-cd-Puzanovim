@@ -15,8 +15,11 @@ jobs:
         with:
           fetch-depth: 0
 
-#      - name: Build application
-#        run: docker-compose build && docker-compose up -d
+      - name: Build application
+        run: docker-compose build && docker-compose up -d
+
+      - name: Run local tests
+        run: docker build --target test .
 
       - name: Deploy to heroku
         uses: akhileshns/heroku-deploy@v3.12.12

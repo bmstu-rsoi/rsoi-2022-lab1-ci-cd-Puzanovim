@@ -7,7 +7,7 @@ from sqlalchemy.future import select
 
 from app.exceptions import NotFoundPerson
 from app.persons.models import Person
-from app.persons.schemas import PersonModel, PersonBase, UpdatePerson
+from app.persons.schemas import PersonBase, PersonModel, UpdatePerson
 
 
 class PersonRepository:

@@ -1,14 +1,13 @@
 import os
 
 import uvicorn
-from fastapi import FastAPI, status, Request, Response
+from fastapi import FastAPI, Request, Response, status
 from fastapi.responses import JSONResponse
 
 from app.db import engine
-from app.persons.models import Base
 from app.exceptions import NotFoundPerson
+from app.persons.models import Base
 from app.persons.routers import router as person_router
-
 
 app = FastAPI()
 app.include_router(person_router, prefix='/api/v1/persons', tags=['Person REST API operations'])
