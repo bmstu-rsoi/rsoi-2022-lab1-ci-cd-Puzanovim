@@ -15,6 +15,13 @@ RUN pip install --no-cache-dir --upgrade -r /python_requirements/requirements.tx
 
 COPY app/ /app/
 
+# ------------ test -----------------------
+FROM stage0 as test
+
+COPY app_tests/ /app_tests/
+
+RUN pytest /app_tests
+
 # ------------ final -----------------------
 
 FROM stage0 as final

@@ -1,12 +1,13 @@
 from typing import List
 
-from fastapi import APIRouter, status, Depends, Response
+from fastapi import APIRouter, Depends, Response, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db import async_db_session
 from app.persons.repository import PersonRepository
-from app.persons.schemas import PersonModel, PersonBase, UpdatePerson
-from app.persons.service import delete_person, update_person, get_persons, get_person, create_person
+from app.persons.schemas import PersonBase, PersonModel, UpdatePerson
+from app.persons.service import (create_person, delete_person, get_person,
+                                 get_persons, update_person)
 
 router = APIRouter()
 person_repository = PersonRepository()

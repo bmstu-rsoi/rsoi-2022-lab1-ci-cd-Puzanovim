@@ -3,7 +3,7 @@ from typing import List
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.persons.repository import PersonRepository
-from app.persons.schemas import PersonModel, PersonBase, UpdatePerson
+from app.persons.schemas import PersonBase, PersonModel, UpdatePerson
 
 
 async def get_persons(db: AsyncSession, repo: PersonRepository) -> List[PersonModel]:
