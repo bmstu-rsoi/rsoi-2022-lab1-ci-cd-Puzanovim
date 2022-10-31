@@ -15,7 +15,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      # TODO build, test and deploy project
+#      - name: Build application
+#        run: docker-compose build && docker-compose up -d
+
+      - name: Deploy to heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: pim-person-service
+          heroku_email: puzanovim@gmail.com
+          usedocker: true
+          healthcheck: "https://pim-person-service.herokuapp.com/docs"
+          delay: 30
 
       - name: Run API Tests
         uses: matt-ball/newman-action@master
